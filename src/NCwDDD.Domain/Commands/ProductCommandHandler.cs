@@ -41,16 +41,17 @@ namespace NCwDDD.Domain.Commands
             if (!request.IsValid()) return request.ValidationResult;
 
             var product = new Product(request.Id, request.Name, request.Description, request.Category, request.Price, request.StoredQuantity, request.RegistrationDate);
-            var existingCustomer = await _productRepository.GetById(product.Id);
 
-            if (existingCustomer != null && existingCustomer.Id != product.Id)
-            {
-                if (!existingCustomer.Equals(product))
-                {
-                    AddError("The customer e-mail has already been taken.");
-                    return ValidationResult;
-                }
-            }
+            //Command validation example
+            //var existingProduct = await _productRepository.GetById(product.Id);
+            //if (existingProduct != null && existingProduct.Id != product.Id)
+            //{
+            //    if (!existingProduct.Name.Equals(product.Name))
+            //    {
+            //        AddError("The product name has already been used.");
+            //        return ValidationResult;
+            //    }
+            //}
 
             product.AddDomainEvent(new ProductUpdatedEvent(product.Id, product.Name, product.Description, product.Category, product.Price, product.StoredQuantity, product.RegistrationDate));
 
@@ -63,17 +64,17 @@ namespace NCwDDD.Domain.Commands
         {
             if (!request.IsValid()) return request.ValidationResult;
 
-            var customer = await _productRepository.GetById(request.Id);
+            var product = await _productRepository.GetById(request.Id);
 
-            if (customer is null)
+            if (product is null)
             {
-                AddError("The customer doesn't exists.");
+                AddError("The product doesn't exists.");
                 return ValidationResult;
             }
 
-            customer.AddDomainEvent(new ProductRemovedEvent(request.Id));
+            product.AddDomainEvent(new ProductRemovedEvent(request.Id));
 
-            _productRepository.Remove(customer);
+            _productRepository.Remove(product);
 
             return await Commit(_productRepository.UnitOfWork);
         }

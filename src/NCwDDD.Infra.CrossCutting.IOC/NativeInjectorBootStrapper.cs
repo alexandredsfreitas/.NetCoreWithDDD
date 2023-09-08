@@ -38,6 +38,7 @@ namespace NCwDDD.Infra.CrossCutting.IOC
 
             // Infra - Data
             services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<NCwDDDContext>();
 
             // Infra - Data EventSourcing
