@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Commands\" />
+    <None Remove="Events\" />
+    <None Remove="Interfaces\" />
+    <None Remove="Models\" />
+    <None Remove="Commands\Validations\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Commands\" />
+    <Folder Include="Events\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="Models\" />
+    <Folder Include="Commands\Validations\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="NetDevPack" Version="6.1.0" />
+  </ItemGroup>
+</Project>
