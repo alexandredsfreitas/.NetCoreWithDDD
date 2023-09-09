@@ -38,7 +38,8 @@ namespace NCwDDD.Domain.Commands
 
         public async Task<ValidationResult> Handle(UpdateProductCommand request, CancellationToken cancellationToken)
         {
-            if (!request.IsValid()) return request.ValidationResult;
+            if (!request.IsValid())
+                return request.ValidationResult;
 
             var product = new Product(request.Id, request.Name, request.Description, request.Category, request.Price, request.StoredQuantity, request.RegistrationDate);
 
@@ -62,7 +63,8 @@ namespace NCwDDD.Domain.Commands
 
         public async Task<ValidationResult> Handle(RemoveProductCommand request, CancellationToken cancellationToken)
         {
-            if (!request.IsValid()) return request.ValidationResult;
+            if (!request.IsValid())
+                return request.ValidationResult;
 
             var product = await _productRepository.GetById(request.Id);
 

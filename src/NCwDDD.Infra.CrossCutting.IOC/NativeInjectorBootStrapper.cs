@@ -25,16 +25,25 @@ namespace NCwDDD.Infra.CrossCutting.IOC
 
             // Application
             services.AddScoped<IProductAppService, ProductAppService>();
+            services.AddScoped<ICategoryAppService, CategoryAppService>();
 
             // Domain - Events
             services.AddScoped<INotificationHandler<ProductRegisteredEvent>, ProductEventHandler>();
             services.AddScoped<INotificationHandler<ProductUpdatedEvent>, ProductEventHandler>();
             services.AddScoped<INotificationHandler<ProductRemovedEvent>, ProductEventHandler>();
 
+            services.AddScoped<INotificationHandler<CategoryRegisteredEvent>, CategoryEventHandler>();
+            services.AddScoped<INotificationHandler<CategoryUpdatedEvent>, CategoryEventHandler>();
+            services.AddScoped<INotificationHandler<CategoryRemovedEvent>, CategoryEventHandler>();
+
             // Domain - Commands
             services.AddScoped<IRequestHandler<RegisterNewProductCommand, ValidationResult>, ProductCommandHandler>();
             services.AddScoped<IRequestHandler<UpdateProductCommand, ValidationResult>, ProductCommandHandler>();
             services.AddScoped<IRequestHandler<RemoveProductCommand, ValidationResult>, ProductCommandHandler>();
+
+            services.AddScoped<IRequestHandler<RegisterNewCategoryCommand, ValidationResult>, CategoryCommandHandler>();
+            services.AddScoped<IRequestHandler<UpdateCategoryCommand, ValidationResult>, CategoryCommandHandler>();
+            services.AddScoped<IRequestHandler<RemoveCategoryCommand, ValidationResult>, CategoryCommandHandler>();
 
             // Infra - Data
             services.AddScoped<IProductRepository, ProductRepository>();

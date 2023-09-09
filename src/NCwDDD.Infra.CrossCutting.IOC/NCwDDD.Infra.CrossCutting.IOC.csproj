@@ -11,6 +11,7 @@
     <ProjectReference Include="..\NCwDDD.Domain\NCwDDD.Domain.csproj" />
     <ProjectReference Include="..\NCwDDD.Infra.CrossCutting.Bus\NCwDDD.Infra.CrossCutting.Bus.csproj" />
     <ProjectReference Include="..\NCwDDD.Infra.Data\NCwDDD.Infra.Data.csproj" />
+    <ProjectReference Include="..\NCwDDD.Application\NCwDDD.Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>
