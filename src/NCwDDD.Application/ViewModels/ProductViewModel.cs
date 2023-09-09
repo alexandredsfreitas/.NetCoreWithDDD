@@ -6,7 +6,7 @@ namespace NCwDDD.Application.ViewModels
 	public class ProductViewModel
 	{
         public Guid Id { get; set; }
-
+        
         public string Name { get; private set; }
 
         public string Description { get; private set; }

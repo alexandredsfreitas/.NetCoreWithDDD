@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
-//using NCwDDD.Application.EventSourcedNormalizers;
 using NCwDDD.Application.Interfaces;
 using NCwDDD.Application.ViewModels;
 using NCwDDD.Domain.Commands;
 using NCwDDD.Domain.Interfaces;
-using NCwDDD.Infra.Data.Repository.EventSourcing;
 using FluentValidation.Results;
 using NetDevPack.Mediator;
 
@@ -17,18 +15,15 @@ namespace NCwDDD.Application.Services
     {
         private readonly IMapper _mapper;
         private readonly ICategoryRepository _categoryRepository;
-        //private readonly IEventStoreRepository _eventStoreRepository;
         private readonly IMediatorHandler _mediator;
 
         public CategoryAppService(IMapper mapper,
                                   ICategoryRepository categoryRepository,
-                                  IMediatorHandler mediator,
-                                  IEventStoreRepository eventStoreRepository)
+                                  IMediatorHandler mediator)
         {
             _mapper = mapper;
             _categoryRepository = categoryRepository;
             _mediator = mediator;
-            //_eventStoreRepository = eventStoreRepository;
         }
 
         public async Task<IEnumerable<CategoryViewModel>> GetAll()
@@ -58,11 +53,6 @@ namespace NCwDDD.Application.Services
             var removeCommand = new RemoveCategoryCommand(id);
             return await _mediator.SendCommand(removeCommand);
         }
-
-        //public async Task<IList<CategoryHistoryData>> GetAllHistory(Guid id)
-        //{
-        //    return CategoryHistory.ToJavaScriptCategoryHistory(await _eventStoreRepository.All(id));
-        //}
 
         public void Dispose()
         {

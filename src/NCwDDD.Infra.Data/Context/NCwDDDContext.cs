@@ -8,6 +8,7 @@ using NetDevPack.Data;
 using NetDevPack.Domain;
 using NetDevPack.Mediator;
 using NetDevPack.Messaging;
+using Microsoft.Extensions.Options;
 
 namespace NCwDDD.Infra.Data.Context
 {

@@ -11,7 +11,7 @@ namespace NCwDDD.Application.ViewModels
 
         public CategoryType CategoryType { get; set; }
 
-        public ProductViewModel Product { get; set; }
+        //public ProductViewModel Product { get; set; }
     }
 
 }

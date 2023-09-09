@@ -10,7 +10,4 @@
     <PackageReference Include="NetDevPack" Version="6.1.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\NCwDDD.Domain.Core\NCwDDD.Domain.Core.csproj" />
-  </ItemGroup>
 </Project>

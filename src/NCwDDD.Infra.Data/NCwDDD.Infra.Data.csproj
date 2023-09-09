@@ -8,32 +8,30 @@
 
   <ItemGroup>
     <None Remove="Context\" />
-    <None Remove="EventSourcing\" />
     <None Remove="Mappings\" />
     <None Remove="Migrations\" />
     <None Remove="Repostiory\EventSourcing\" />
     <None Remove="Repostiory\" />
     <None Remove="Repository\" />
-    <None Remove="Repository\EventSourcing\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Context\" />
-    <Folder Include="EventSourcing\" />
     <Folder Include="Mappings\" />
     <Folder Include="Migrations\" />
     <Folder Include="Repostiory\" />
     <Folder Include="Repository\" />
-    <Folder Include="Repository\EventSourcing\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" Version="2.2.8" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.10" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.4">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="Netdevpack.Identity" Version="7.0.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NCwDDD.Domain\NCwDDD.Domain.csproj" />
-    <ProjectReference Include="..\NCwDDD.Domain.Core\NCwDDD.Domain.Core.csproj" />
   </ItemGroup>
 </Project>

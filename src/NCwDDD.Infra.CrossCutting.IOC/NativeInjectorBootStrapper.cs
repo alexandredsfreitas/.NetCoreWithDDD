@@ -6,9 +6,7 @@ using NCwDDD.Domain.Events;
 using NCwDDD.Domain.Interfaces;
 using NCwDDD.Infra.CrossCutting.Bus;
 using NCwDDD.Infra.Data.Context;
-using NCwDDD.Infra.Data.EventSourcing;
 using NCwDDD.Infra.Data.Repository;
-using NCwDDD.Infra.Data.Repository.EventSourcing;
 using FluentValidation.Results;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
@@ -50,10 +48,6 @@ namespace NCwDDD.Infra.CrossCutting.IOC
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<NCwDDDContext>();
 
-            // Infra - Data EventSourcing
-            services.AddScoped<IEventStoreRepository, EventStoreSqlRepository>();
-            services.AddScoped<IEventStore, SqlEventStore>();
-            services.AddScoped<EventStoreSqlContext>();
         }
     }
 }

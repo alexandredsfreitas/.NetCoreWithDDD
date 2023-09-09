@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NCwDDD.Domain.Core\NCwDDD.Domain.Core.csproj" />
     <ProjectReference Include="..\NCwDDD.Domain\NCwDDD.Domain.csproj" />
     <ProjectReference Include="..\NCwDDD.Infra.CrossCutting.Bus\NCwDDD.Infra.CrossCutting.Bus.csproj" />
     <ProjectReference Include="..\NCwDDD.Infra.Data\NCwDDD.Infra.Data.csproj" />

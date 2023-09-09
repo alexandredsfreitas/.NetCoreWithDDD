@@ -7,7 +7,6 @@ using NCwDDD.Application.Interfaces;
 using NCwDDD.Application.ViewModels;
 using NCwDDD.Domain.Commands;
 using NCwDDD.Domain.Interfaces;
-using NCwDDD.Infra.Data.Repository.EventSourcing;
 using FluentValidation.Results;
 using NetDevPack.Mediator;
 
@@ -22,8 +21,7 @@ namespace NCwDDD.Application.Services
 
         public ProductAppService(IMapper mapper,
                                   IProductRepository productRepository,
-                                  IMediatorHandler mediator,
-                                  IEventStoreRepository eventStoreRepository)
+                                  IMediatorHandler mediator)
         {
             _mapper = mapper;
             _productRepository = productRepository;

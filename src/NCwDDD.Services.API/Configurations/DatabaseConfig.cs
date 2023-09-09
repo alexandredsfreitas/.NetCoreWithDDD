@@ -12,9 +12,6 @@ namespace NCwDDD.Services.API.Configurations
 
             services.AddDbContext<NCwDDDContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
-
-            services.AddDbContext<EventStoreSqlContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
         }
     }
 }
