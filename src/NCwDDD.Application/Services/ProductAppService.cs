@@ -41,19 +41,19 @@ namespace NCwDDD.Application.Services
 
         public async Task<ValidationResult> Register(ProductViewModel productViewModel)
         {
-            var registerCommand = _mapper.Map<RegisterNewCategoryCommand>(productViewModel);
+            var registerCommand = _mapper.Map<RegisterNewProductCommand>(productViewModel);
             return await _mediator.SendCommand(registerCommand);
         }
 
         public async Task<ValidationResult> Update(ProductViewModel productViewModel)
         {
-            var updateCommand = _mapper.Map<UpdateCategoryCommand>(productViewModel);
+            var updateCommand = _mapper.Map<UpdateProductCommand>(productViewModel);
             return await _mediator.SendCommand(updateCommand);
         }
 
         public async Task<ValidationResult> Remove(Guid id)
         {
-            var removeCommand = new RemoveCategoryCommand(id);
+            var removeCommand = new RemoveProductCommand(id);
             return await _mediator.SendCommand(removeCommand);
         }
 
