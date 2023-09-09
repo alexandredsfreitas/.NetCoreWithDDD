@@ -4,14 +4,14 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace NCwDDD.Services.API.Controllers
 {
-	public class ProductController : APIController
-	{
-		private readonly IProductAppService _productAppService;
+    public class ProductController : APIController
+    {
+        private readonly IProductAppService _productAppService;
 
-		public ProductController(IProductAppService productAppService)
-		{
+        public ProductController(IProductAppService productAppService)
+        {
             _productAppService = productAppService;
-		}
+        }
 
         [HttpGet("product")]
         public async Task<IEnumerable<ProductViewModel>> Get()
