@@ -11,6 +11,8 @@ namespace NCwDDD.Application.ViewModels
 
         public string Description { get; private set; }
 
+        public Guid CategoryId { get; set; }
+
         public Category Category { get; private set; }
 
         public decimal Price { get; private set; }

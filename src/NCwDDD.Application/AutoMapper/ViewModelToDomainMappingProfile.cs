@@ -9,9 +9,9 @@ namespace NCwDDD.Application.AutoMapper
 		public ViewModelToDomainMappingProfile()
 		{
             CreateMap<ProductViewModel, RegisterNewProductCommand>()
-                .ConstructUsing(p => new RegisterNewProductCommand(p.Name, p.Description, p.Category, p.Price, p.StoredQuantity));
+                .ConstructUsing(p => new RegisterNewProductCommand(p.Name, p.Description, p.CategoryId, p.Price, p.StoredQuantity));
             CreateMap<ProductViewModel, UpdateProductCommand>()
-                .ConstructUsing(p => new UpdateProductCommand(p.Id, p.Name, p.Description, p.Category, p.Price, p.StoredQuantity));
+                .ConstructUsing(p => new UpdateProductCommand(p.Id, p.Name, p.Description, p.CategoryId, p.Price, p.StoredQuantity));
 
             CreateMap<CategoryViewModel, RegisterNewCategoryCommand>()
                 .ConstructUsing(p => new RegisterNewCategoryCommand(p.Name, p.CategoryType));
