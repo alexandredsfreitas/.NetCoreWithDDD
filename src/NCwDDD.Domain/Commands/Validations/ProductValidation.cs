@@ -27,7 +27,7 @@ namespace NCwDDD.Domain.Commands.Validations
 
 		protected void ValidateCategory()
 		{
-			RuleFor(p => p.Category)
+			RuleFor(p => p.CategoryId)
 				.NotNull().WithMessage("Please ensure you have entered a valid Product Category");
 		}
 

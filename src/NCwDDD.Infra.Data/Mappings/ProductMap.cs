@@ -18,12 +18,11 @@ namespace NCwDDD.Infra.Data.Mappings
 
             builder.Property(p => p.Description)
                 .HasColumnType("varchar(1000)")
-                .HasMaxLength(100)
-                .IsRequired();
+                .HasMaxLength(1000);
 
             builder.HasOne(p => p.Category)
-            .WithOne(c => c.Product)
-            .HasForeignKey<Category>(c => c.Id);
+            .WithMany(c => c.Products)
+            .HasForeignKey(p => p.CategoryId);
         }
     }
 }

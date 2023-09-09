@@ -18,7 +18,7 @@ namespace NCwDDD.Domain.Models
 
         public CategoryType CategoryType { get; private set; }
 
-        public Product Product { get; set; }
+        public ICollection<Product> Products { get; private set; } = new List<Product>();
     }
 
     public enum CategoryType

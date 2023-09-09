@@ -6,11 +6,11 @@ namespace NCwDDD.Domain.Commands
 {
 	public class RegisterNewProductCommand : ProductCommand
     {
-		public RegisterNewProductCommand(string name, string description, Category category, decimal price, int storedQuantity)
+		public RegisterNewProductCommand(string name, string description, Guid categoryId, decimal price, int storedQuantity)
 		{
 			Name = name;
 			Description = description;
-			Category = category;
+			CategoryId = categoryId;
 			Price = price;
 			StoredQuantity = storedQuantity;
 		}

@@ -9,6 +9,8 @@ using NetDevPack.Domain;
 using NetDevPack.Mediator;
 using NetDevPack.Messaging;
 using Microsoft.Extensions.Options;
+using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.Extensions.Configuration;
 
 namespace NCwDDD.Infra.Data.Context
 {
@@ -16,8 +18,13 @@ namespace NCwDDD.Infra.Data.Context
     {
         private readonly IMediatorHandler _mediatorHandler;
 
+        public NCwDDDContext(DbContextOptions<NCwDDDContext> options) : base(options)
+        {
+        }
+
         public NCwDDDContext(DbContextOptions<NCwDDDContext> options, IMediatorHandler mediatorHandler) : base(options)
         {
+            this.Database.GetDbConnection().ConnectionString = "Server=localhost;Database=test;User Id=sa;Password=Tapioca123;";
             _mediatorHandler = mediatorHandler;
             ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
             ChangeTracker.AutoDetectChangesEnabled = false;
@@ -56,6 +63,23 @@ namespace NCwDDD.Infra.Data.Context
             var success = await SaveChangesAsync() > 0;
 
             return success;
+        }
+    }
+
+    public class NCwDDDContextFactory : IDesignTimeDbContextFactory<NCwDDDContext>
+    {
+        public NCwDDDContext CreateDbContext(string[] args)
+        {
+            IConfigurationRoot configuration = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json")
+                .Build();
+
+            var builder = new DbContextOptionsBuilder<NCwDDDContext>();
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
+            builder.UseSqlServer(connectionString);
+
+            return new NCwDDDContext(builder.Options);
         }
     }
 

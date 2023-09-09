@@ -27,9 +27,9 @@ namespace NCwDDD.Domain.Commands
             if (!request.IsValid())
                 return request.ValidationResult;
 
-            var product = new Product(Guid.NewGuid(), request.Name, request.Description, request.Category, request.Price, request.StoredQuantity, DateTime.Now);
+            var product = new Product(Guid.NewGuid(), request.Name, request.Description, request.CategoryId, request.Price, request.StoredQuantity, DateTime.Now);
 
-            product.AddDomainEvent(new ProductRegisteredEvent(product.Id, product.Name, product.Description, product.Category, product.Price, product.StoredQuantity, product.RegistrationDate));
+            product.AddDomainEvent(new ProductRegisteredEvent(product.Id, product.Name, product.Description, product.CategoryId, product.Price, product.StoredQuantity, product.RegistrationDate));
 
             _productRepository.Add(product);
 
@@ -41,7 +41,7 @@ namespace NCwDDD.Domain.Commands
             if (!request.IsValid())
                 return request.ValidationResult;
 
-            var product = new Product(request.Id, request.Name, request.Description, request.Category, request.Price, request.StoredQuantity, request.RegistrationDate);
+            var product = new Product(request.Id, request.Name, request.Description, request.CategoryId, request.Price, request.StoredQuantity, request.RegistrationDate);
 
             //Command validation example
             //var existingProduct = await _productRepository.GetById(product.Id);
@@ -54,7 +54,7 @@ namespace NCwDDD.Domain.Commands
             //    }
             //}
 
-            product.AddDomainEvent(new ProductUpdatedEvent(product.Id, product.Name, product.Description, product.Category, product.Price, product.StoredQuantity, product.RegistrationDate));
+            product.AddDomainEvent(new ProductUpdatedEvent(product.Id, product.Name, product.Description, product.CategoryId, product.Price, product.StoredQuantity, product.RegistrationDate));
 
             _productRepository.Update(product);
 

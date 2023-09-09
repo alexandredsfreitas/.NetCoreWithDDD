@@ -12,7 +12,7 @@ namespace NCwDDD.Domain.Commands
 
         public string Description { get; protected set; }
 
-        public Category Category { get; protected set; }
+        public Guid CategoryId { get; protected set; }
 
         public decimal Price { get; protected set; }
 

@@ -1,7 +1,6 @@
 ﻿using NCwDDD.Application.Interfaces;
 using NCwDDD.Application.Services;
 using NCwDDD.Domain.Commands;
-using NCwDDD.Domain.Core.Events;
 using NCwDDD.Domain.Events;
 using NCwDDD.Domain.Interfaces;
 using NCwDDD.Infra.CrossCutting.Bus;

@@ -14,10 +14,10 @@ namespace NCwDDD.Services.API.Configurations
                 s.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
-                    Title = "Equinox Project",
-                    Description = "Equinox API Swagger surface",
-                    Contact = new OpenApiContact { Name = "Eduardo Pires", Email = "contato@eduardopires.net.br", Url = new Uri("http://www.eduardopires.net.br") },
-                    License = new OpenApiLicense { Name = "MIT", Url = new Uri("https://github.com/EduardoPires/EquinoxProject/blob/master/LICENSE") }
+                    Title = "NetCoreWithDDD",
+                    Description = "NetCoreWithDDD API Swagger surface",
+                    Contact = new OpenApiContact { Name = "Alexadre", Email = "a@b.com", Url = new Uri("http://www.LinkedIn.com/in/alexandredsfreitas") },
+                    License = new OpenApiLicense { Name = "MIT", Url = new Uri("https://github.com/alexandredsfreitas") }
                 });
 
                 s.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme

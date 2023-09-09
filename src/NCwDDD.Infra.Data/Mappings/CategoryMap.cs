@@ -16,9 +16,9 @@ namespace NCwDDD.Infra.Data.Mappings
                 .HasMaxLength(100)
                 .IsRequired();
 
-            builder.HasOne(c => c.Product)
+            builder.HasMany(c => c.Products)
             .WithOne(p => p.Category)
-            .HasForeignKey<Category>(c => c.Id);
+            .HasForeignKey(p => p.CategoryId);
         }
     }
 }

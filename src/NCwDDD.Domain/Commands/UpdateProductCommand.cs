@@ -6,12 +6,12 @@ namespace NCwDDD.Domain.Commands
 {
 	public class UpdateProductCommand : ProductCommand
     {
-		public UpdateProductCommand(Guid id, string name, string description, Category category, decimal price, int storedQuantity)
+		public UpdateProductCommand(Guid id, string name, string description, Guid categoryId, decimal price, int storedQuantity)
 		{
             Id = id;
             Name = name;
             Description = description;
-            Category = category;
+            CategoryId = categoryId;
             Price = price;
             StoredQuantity = storedQuantity;
 		}

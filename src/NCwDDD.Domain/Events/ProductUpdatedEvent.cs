@@ -6,12 +6,12 @@ namespace NCwDDD.Domain.Events
 {
 	public class ProductUpdatedEvent : Event
 	{
-		public ProductUpdatedEvent(Guid id, string name, string description, Category category, decimal price, int storedQuantity, DateTime registrationDate)
+		public ProductUpdatedEvent(Guid id, string name, string description, Guid categoryId, decimal price, int storedQuantity, DateTime registrationDate)
 		{
             Id = id;
             Name = name;
             Description = description;
-            Category = category;
+            CategoryId = categoryId;
             Price = price;
             StoredQuantity = storedQuantity;
             RegistrationDate = registrationDate;
@@ -23,7 +23,7 @@ namespace NCwDDD.Domain.Events
 
         public string Description { get; private set; }
 
-        public Category Category { get; private set; }
+        public Guid CategoryId { get; private set; }
 
         public decimal Price { get; private set; }
 
